@@ -5,9 +5,10 @@ import {connect} from "react-redux";
 import * as actions from '../actions';
 
 import Header from "./Header";
+import Landing from "./Landing";
 const Dashboard = () => <h2> Dashboard</h2>;
 const SurveyNew = () => <h2> SurveyNew</h2>;
-const Landing = () => <h2> Landing</h2>;
+
 function mapStateToProps(state) {
     return {
 
@@ -21,10 +22,12 @@ class App extends Component {
     
     render() {
         return (
-            <div className="container">
+          <div>
+          
       <BrowserRouter>
         <div>
-          <Header />
+        <Header />
+        <div className="container">
           <Switch>
             <Route exact path="/" component={Landing} />
 
@@ -33,8 +36,10 @@ class App extends Component {
             <Route path="/surveys/new" component={SurveyNew} />
           </Switch>
         </div>
+        </div>
       </BrowserRouter>
     </div>
+ 
         );
     }
 }
