@@ -6,6 +6,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 require('./model/user');
+require('./model/Survey');
 require('./services/passport');
 mongoose.connect(keys.mongoURL);
 
@@ -30,7 +31,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
-
+require('./routes/surveyRoutes')(app);
 //make sure express serves react in production
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
